@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微金所主页</title>
+    <!-- 1. 引入bootstrap的css -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入微金所字体图标的css（定义了微金所网站的所有图标） -->
+    <link rel="stylesheet" href="./css/font.css">
+    <!-- 3. 引入主页的index.css -->
+    <link rel="stylesheet" href="./less/index.css">
+</head>
+
+<body>
+    <!-- 微金所头部区域 -->
+    <header id="header" class="hidden-xs hidden-sm">
+        <!-- 全局CSS样式 > 概览 >布局容器 -->
+        <div class="container">
+            <div class="row text-center">
+                <!-- 这种属于不规律的栅格 -->
+                <div class="col-md-3">
+                    <a href="#" class="link">
+                        <!-- 自己的图标手机图标 -->
+                        <i class="icon-mobilephone"></i>
+                        <!-- 字体图标 > 组件 > 字体图标 复制图标类名即可和标签无关 -->
+                        <!-- <span class="glyphicon glyphicon-phone"></span> -->
+                        手机微金所
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                        <img src="./img/c_06.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3"> <i class="glyphicon glyphicon-phone-alt"></i> 4006-89-4006（服务时间：9:00-21:00）</div>
+                <div class="col-md-3">
+                    <a href="#">常见问题</a>
+                    <a href="#">财富登录</a>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-danger  btn-sm">免费注册</button>
+                    <!-- data-toggle="modal" 开关控制模态框功能是否开启 -->
+                    <!-- data-target="#myModal" 控制切换的模态框的框框 -->
+                    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#myModal">登录</button>
+                    <!-- Modal -->
+                    <!-- tabindex 也没什么用 -->
+                    <div class="modal fade text-left" id="myModal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- 模态框的头部 放标题和xx关闭按钮 -->
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">登录模态框标题</h4>
+                                </div>
+                                <!-- 模态框的身体 放的模态框里面的内容 -->
+                                <div class="modal-body">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="inputPassword3"
+                                                    placeholder="请输入密码">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn btn-success btn-block">登录</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <!-- data-dismiss="modal" 控制关闭模态框 -->
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 导航条区域 -->
+    <!-- affix就是吸顶插件 这个插件实现吸顶效果
+    data-spy="affix" 属性控制是否开启吸顶效果
+    data-offset-top="60" 控制什么时候开始吸顶 滚动条滚动到多少距离开始吸顶 
+    data-offset-bottom="200" 当前吸顶元素距离网页最底部多少以内会取消吸顶 但是取消吸顶会有bug
+    这个插件有点bug推荐自己写-->
+    <nav id="nav" class="navbar navbar-default" data-spy="affix" data-offset-top="40">
+        <!-- 居中的版心容器 -->
+        <div class="container">
+            <!-- 导航条的头部为了在手机端显示一个按钮切换控制-->
+            <div class="navbar-header">
+                <!-- sr-only aria  role等都是盲人设备阅读器使用属性 -->
+                <!-- data-都是功能属性都有用的 -->
+                <!-- class类名 都是控制样式的 -->
+                <!-- 按钮是只有手机端才能看见 -->
+                <!-- collapse是一个JS插件集成在了导航条里面 -->
+                <!-- data-toggle="collapse"  插件的功能功能的开关 如果有这个属性插件的点击功能才能开启 如果没有这个属性开启不了插件的功能
+                就是插件的初始化有属性就会初始化 没有这个属性不会被触发 -->
+                <!-- data-target控制折叠菜单控制的内容的选择器 #是id选择器 必须有一个id和他属性里面的的一样 -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLink">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- 品牌在手机电脑都能看见 都是左边 -->
+                <a class="navbar-brand" href="#">
+                    <!-- 微金所的icon图标 -->
+                    <i class="icon-icon"></i>
+                    <i class="icon-logo"></i>
+                </a>
+            </div>
+            <!-- 导航条的主体(身体) -->
+            <div class="collapse navbar-collapse" id="navLink">
+                <!-- 左边的导航 -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">我要投资</a></li>
+                    <li><a href="#">我要借款</a></li>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">新手专区</a></li>
+                    <li><a href="#">最新动态</a></li>
+                    <li><a href="#">微论坛</a></li>
+                </ul>
+                <!-- 右边的导航条 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">个人中心</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- 轮播图区域 -->
+    <section id="slide">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- 小圆点的容器 -->
+            <ol class="carousel-indicators">
+                <!-- data-target="#carousel-example-generic" 控制小圆原点要切换轮播图的容器 -->
+                <!-- data-slide-to="0"控制小圆点切换的第几张轮播图 利用索引0开 -->
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+            <!-- 轮播图的图片容器 -->
+            <div class="carousel-inner" role="listbox">
+                <!-- 每一个item就是一个轮播图项 active当前正在显示的轮播图项 -->
+                <div class="item active">
+                    <!-- item里面放图片 或者标题内容等 -->
+                    <!-- 大图使用背景图 -->
+                    <!-- 大图在 sm md lg显示 xs隐藏 -->
+                    <div class="large-img hidden-xs" style="background-image: url(./img/slide_01_2000x410.jpg)"></div>
+                    <!-- 小图使用图片标签 -->
+                    <!-- 小图在xs显示 sm md lg都隐藏 -->
+                    <img class="small-img hidden-sm hidden-md hidden-lg" src="./img/slide_01_640x340.jpg" alt="">
+                </div>
+                <div class="item">
+                    <div class="large-img hidden-xs" style="background-image: url(./img/slide_02_2000x410.jpg)"></div>
+                    <img class="small-img hidden-sm hidden-md hidden-lg" src="./img/slide_02_640x340.jpg" alt="">
+                </div>
+                <div class="item">
+                    <div class="large-img hidden-xs" style="background-image: url(./img/slide_03_2000x410.jpg)"></div>
+                    <img class="small-img hidden-sm hidden-md hidden-lg" src="./img/slide_03_640x340.jpg" alt="">
+                </div>
+                <div class="item">
+                    <div class="large-img hidden-xs" style="background-image: url(./img/slide_04_2000x410.jpg)"></div>
+                    <img class="small-img hidden-sm hidden-md hidden-lg" src="./img/slide_04_640x340.jpg" alt="">
+                </div>
+
+                <!-- 控制器 左右箭头控制 -->
+                <!-- data-slide="prev" 属性控制切换到上一张还是下一张 prev上一张 next下一张 -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+
+                </a>
+            </div>
+        </div>
+        <button class="btn btn-success pause" >暂停</button> 
+        <button class="btn btn-success prev" >上一张</button> 
+        <button class="btn btn-success next" >下一张</button> 
+    </section>
+    <!-- 特色介绍区域 -->
+    <section id="feature" class="hidden-xs">
+        <div class="container">
+            <div class="row">
+
+                <!-- md lg 3列  12/3 =4
+                sm 2列 12/2 == 6
+                xs 隐藏 hidden-xs -->
+                <div class="col-md-4 col-sm-6">
+                    <!-- 媒体对象的组件 组件 > 媒体对象 -->
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- <a href="#" class="feature-box">
+                            <div class="left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="right">
+                                <h4>支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a> -->
+
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- 媒体对象的组件 组件 > 媒体对象 -->
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- 媒体对象的组件 组件 > 媒体对象 -->
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- 媒体对象的组件 组件 > 媒体对象 -->
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- 媒体对象的组件 组件 > 媒体对象 -->
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- 媒体对象的组件 组件 > 媒体对象 -->
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <i class="icon-meiyuan"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">支付交易保障</h4>
+                                <p>银联支付全程保障财产安全</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 立即预约区域 -->
+    <section id="booking">
+        <div class="container">
+            <div class="pull-left">
+                <i class="icon-naozhong"></i> 现在有<span class="text-danger">458</span> 人在排队，累计预约交易成功<span class="text-danger">7409</span>
+                次。 什么是预约投标？
+                <a href="#" class="text-danger">立即预约</a>
+            </div>
+            <div class="pull-right">
+                <a href="#" class="text-muted"><i class="icon-video"></i> 微金所企业宣传片</a>
+            </div>
+        </div>
+    </section>
+    <!-- 商品区域 -->
+    <section id="products">
+        <div class="container">
+            <!-- 使用到JS插件 > 标签页插件 tab栏切换 -->
+            <!-- 商品标题菜单 -->
+            <div class="title">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <!-- 每个li控制每一个商品类型的容器 -->
+                    <!-- 通过href属性 和 data-toggle="tab" 控制切换功能
+                    href 控制切换的元素的选择器
+                    data-toggle 开关控制切换功能是否开启 -->
+                    <li class="active"><a href="#product1" data-toggle="tab">特别推荐</a></li>
+                    <li><a href="#product2" data-toggle="tab">微投资</a></li>
+                    <li><a href="#product3" data-toggle="tab">微小宝</a></li>
+                    <li><a href="#product4" data-toggle="tab">微消费</a></li>
+                    <li><a href="#product5" data-toggle="tab">微增利</a></li>
+                    <li><a href="#product6" data-toggle="tab">微金宝</a></li>
+                    <li><a href="#product7" data-toggle="tab">微转让</a></li>
+                </ul>
+            </div>
+            <!-- 商品内容 -->
+            <div class="tab-content">
+                <!-- tab-pane代表类商品的类 -->
+                <!-- fade 和 fade in 添加淡入淡出效果 默认显示添加 fade in 其他隐藏加fade -->
+                <div class="tab-pane fade in active" id="product1">
+                    <!-- 外面有container容器不需要重复加容器 -->
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-xs-12 ">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product active">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6 text-left">
+                                                <p>起步价</p>
+                                                <!-- 加粗使用strong
+                                                下标使用sub -->
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product ">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <!-- 用一个容器把所有提示按钮包起来 -->
+                                    <div class="tooltips">
+                                        <button type="button" class="btn btn-default" data-toggle="tooltip"
+                                            data-placement="top" title="简单">简</button>
+                                        <button type="button" class="btn btn-default" data-toggle="tooltip"
+                                            data-placement="top" title="桥梁">桥</button>
+                                    </div>
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="product2">
+                    <!-- 外面有container容器不需要重复加容器 -->
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-xs-12 ">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product ">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6 text-left">
+                                                <p>起步价</p>
+                                                <!-- 加粗使用strong
+                                                    下标使用sub -->
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6 text-left">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product active">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <!-- 每个列里面放一个商品盒子  -->
+                            <div class="product">
+                                <div class="left">
+                                    <div class="title">
+                                        <h4>新手体验标008期</h4>
+                                    </div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p>起步价</p>
+                                                <p> <strong>1000.00</strong> <sub>万</sub></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <!-- 用一个容器把所有提示按钮包起来 -->
+                                    <div class="tooltips">
+                                        <button type="button" class="btn btn-default" data-toggle="tooltip"
+                                            data-placement="top" title="简单">简</button>
+                                        <button type="button" class="btn btn-default" data-toggle="tooltip"
+                                            data-placement="top" title="桥梁">桥</button>
+                                    </div>
+                                    <p><strong>8</strong> <sub>%</sub></p>
+                                    <p>年利率</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="product3">3</div>
+                <div class="tab-pane fade" id="product4">4</div>
+                <div class="tab-pane fade" id="product5">5</div>
+                <div class="tab-pane fade" id="product6">6</div>
+                <div class="tab-pane fade" id="product7">7</div>
+            </div>
+        </div>
+    </section>
+    <!-- 新闻区域 -->
+    <section id="news">
+        <div class="container">
+            <div class="row">
+                <!-- 栅格系统的列偏移让第一个栅格往右偏移2列 -->
+                <div class="col-md-2 col-md-offset-2">
+                    <h4>全部新闻</h4>
+                </div>
+                <!-- 左侧一列栅格里面放标签页的标题 -->
+                <div class="col-md-1">
+                    <!-- 标签页的标题 -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#news01" data-toggle="tab"><i class="icon-news01"></i></a></li>
+                        <li><a href="#news02" data-toggle="tab"><i class="icon-news02"></i></a></li>
+                        <li><a href="#news03" data-toggle="tab"><i class="icon-news03"></i></a></li>
+                        <li><a href="#news04" data-toggle="tab"><i class="icon-news04"></i></a></li>
+                    </ul>
+                </div>
+                <!-- 右侧7列 栅格放标签页的内容 -->
+                <div class="col-md-7">
+                    <!-- 标签页的内容 -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in  active" id="news01">
+                            <!-- 组件 > 列表组  -->
+                            <ul class="list-group">
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                                <li class="list-group-item">【微新闻】 1宋喆获刑6年新 46万</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="news02">
+                            <ul class="list-group">
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                                <li class="list-group-item">【微新闻】 8eBay起诉亚马逊 34万</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="news03">3</div>
+                        <div class="tab-pane fade" id="news04">4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- aria sr-only role(盲人设备使用的) 能删 类名 type属性 data-的属性都不能删除(功能作用或者样式作用) -->
+    <!-- data-toggle="modal" 控制功能是否开启 -->
+    <!-- data-target="#myModal" 控制你要弹出目标元素 -->
+    <!-- href="#myModal" 控制你要弹出目标元素 href 只有a标签才有 -->
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+    <a  class="btn btn-primary btn-lg" href="#myModal" data-toggle="modal" >弹出</a> -->
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- 合作伙伴区域 -->
+    <footer id="footer">
+        <div class="container">
+            <div class="title">
+                <h3>合作伙伴</h3>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <!-- 大的容器 小屏以上 3列布局  手机的时候xs 一列布局 -->
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner1"></i></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner2"></i></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner4"></i></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner5"></i></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner6"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner7"></i></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner8"></i></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="icon-partner9"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- 1. 引入bootstrap的js 因为 依赖jquery先引入jquery在引入bootstra.js -->
+    <script src="./lib/jquery/jquery.js"></script>
+    <!-- 2. 引入bootstrap的js -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 3. 引入自己JS -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

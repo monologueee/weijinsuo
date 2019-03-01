@@ -1,0 +1,422 @@
+@main-color: #e92322;
+
+/* 头部区域 */
+#header {
+    border-bottom: 1px solid #ccc;
+
+    .container {
+        .row {
+            // 保证是子代 使用>
+            >div {
+                height: 40px;
+                line-height: 40px;
+                font-size: 12px;
+
+                a {
+                    color: #666;
+                }
+
+                // 第一个带二维码的a样式不一样单独设置
+                .link {
+                    display: block;
+                    position: relative;
+
+                    img {
+                        position: absolute;
+                        top: 40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: none;
+                        z-index: 999;
+                    }
+
+                    // &符号表示当前选择器 a:hover
+                    &:hover {
+                        img {
+                            display: block;
+                        }
+                    }
+                }
+
+                // a:hover{
+                //     img{
+                //         display: block;
+                //     }
+                // }
+                // & ~ div  div ~ div
+                &~div {
+                    border-left: 1px solid #ccc;
+                }
+
+                .btn-link {
+                    color: #666;
+                }
+                .form-horizontal .control-label{
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}
+
+/* 导航区域 */
+#nav {
+    background-color: #fff;
+    // 去掉默认导航条底部margin间距
+    margin-bottom: 0;
+    // 下面几个属性满足条件才会执行
+    // @media(max-width:767px){
+    //     position: fixed;
+    //     z-index: 999;
+    //     background: rgb(255, 255, 255);
+    //     width: 100%;       
+    // }
+    z-index: 997;
+    // 吸顶的时候没有默认100%的宽度
+    width: 100%;
+    // 默认不会到最顶上设置一个top
+    top: 0;
+
+
+    // 导航条头部 里面包含按钮 左边的logo
+    .navbar-header {
+
+        // 移动端切换的菜单按钮 
+        .navbar-toggle {
+            // 因为他默认有8  现在整个导航多加了30px 上下是15px 8 + 15px
+            margin-top: 8px+15px;
+        }
+
+        .navbar-brand {
+            height: 80px;
+            // 因为a默认有上下padding 15px 给了80 内容只有50 行高只有50px
+            line-height: 50px;
+
+            i {
+                font-size: 30px;
+            }
+
+            .icon-icon {
+                color: @main-color;
+
+            }
+
+            .icon-logo {
+                color: #333;
+
+            }
+        }
+    }
+
+    // 导航条的身体 包含了左右的导航链接
+    .navbar-collapse {
+
+        // 所有链接
+        .navbar-nav {
+            li {
+                a {
+                    height: 80px;
+                    // 也是有上下padding  -30px
+                    line-height: 50px;
+
+                    &:hover {
+                        border-bottom: 2px solid @main-color;
+                    }
+                }
+
+                &.active {
+                    a {
+                        background-color: #fff;
+                        border-bottom: 2px solid @main-color;
+                    }
+                }
+            }
+
+            // li.active{}
+        }
+    }
+}
+
+/* 轮播图区域的样式 */
+#slide {
+    .large-img {
+        // 因为每个图不一样 使用行内样式设置图片
+        // background-image: url(./weijinsuo/img/slide_01_2000x410.jpg);
+        height: 410px;
+        background-position: center center;
+    }
+
+    .small-img {
+        width: 100%;
+    }
+}
+
+#feature {
+    padding: 40px;
+
+    .media {
+        a {
+            color: #666;
+
+            &:hover {
+                text-decoration: none;
+                color: @main-color;
+            }
+        }
+    }
+
+    // .feature-box {
+    //     display: flex;
+    //     color: #666;
+
+    //     &:hover {
+    //         text-decoration: none;
+    //         color: @main-color;
+    //     }
+
+    //     .left {
+    //         width: 40px;
+    //         display: flex;
+    //         align-items: center;
+    //     }
+
+    //     .right {
+    //         flex: 1;
+    //     }
+    // }
+}
+
+#booking{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    // 可能在移动端不止一行
+    // line-height: 60px;
+    .text-danger{
+        color: @main-color;
+    }
+}
+
+/* 商品区域 */
+#products{
+    padding: 40px 0;
+    background-color: #eee;
+    // 商品所有标题菜单
+    .title{        
+        .nav-tabs{
+            li{
+                a{
+                    color:#333;
+                    border:0;
+                    border-bottom: 2px solid transparent;
+                    font-size: 16px;
+                    font-weight: 600;
+                    &:hover{
+                        background-color: transparent;                       
+                    }
+                }
+                &.active{
+                    a{
+                        background-color: transparent;
+                        border-bottom: 2px solid @main-color;
+                    }
+                }
+            }
+        }
+    }
+    // 商品所有内容
+    .tab-content{
+        .product{
+            background-color: #fff;
+            display: flex;
+            margin-top: 20px;
+            &.active{
+                background-color: @main-color;
+                color:#fff;
+                position: relative;
+                &::before{
+                    // 如果不使用类名也可以使用图标 只要使用图标的编码+字体名称即可
+                    content: "\e915";
+                    font-family: itcast;
+                    font-size: 30px;
+                    position: absolute;
+                    top: -6px;
+                }
+            }
+            .left{
+                flex:1;
+                padding: 15px;
+                .title{
+                    text-align: center;
+                }
+                .content{
+                    .row{
+                        div{
+                            &:nth-child(2n){
+                                text-align: right;
+                            }
+                            margin-bottom: 10px;
+                            p{
+                                // margin-bottom: 5px;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .right{
+                width: 120px;
+                // 使用媒体查询针对某些有问题屏幕 进行样式调整
+                // 在340屏幕以下右边应该变小
+                @media(max-width: 340px){
+                    width: 100px;
+                }
+                // 在992 到 1200之间也要变小一点
+                @media(min-width: 992px) and (max-width:1200px){
+                    width: 100px;
+                }
+                border-left: 1px dashed #666;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                p{
+                    margin-bottom: 0;
+                    strong{
+                        font-size: 30px;
+                    }
+                }
+                &::before, &::after{
+                    content: '';
+                    position: absolute;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #eee;
+                    left: -8px;
+                    border-radius: 50%;
+                }
+                &::before{
+                    top: -8px;
+                }
+                &::after{
+                    bottom: -8px;
+                }
+                .tooltips{
+                    position: absolute;
+                    top: 20px;
+                    // 一定要设置定位父元素的宽度 不然父元素宽度不够 提示内容会被挤出来位置会跑偏
+                    width: 100%;
+                    text-align: center;
+                    button{
+                        &:first-child{
+                            color:@main-color;
+                            border:1px solid @main-color;
+                            background-color: #fff;
+                        }
+                        // 因为工具提示动态添加一个div在后面 按钮不是最后一个子元素 样式失效
+                        // last-of-type 选中最后一个按钮类型的元素 排除别的类型的元素
+                        &:last-of-type{
+                            color:#0f0;
+                            border:1px solid #0f0;
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 新闻区域样式 */
+#news{
+    padding: 40px 0;    
+    .row{
+        >div{
+            h4{
+                text-align: center;
+                line-height: 40px;
+                border-bottom: 1px dashed #ccc;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    right: -10px;
+                    bottom: -5px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border:1px solid #ccc;
+                }
+            }
+            .nav-tabs{
+                border-bottom: 0;
+                // 当小和超小屏幕991及以下的时候需要让li平分1/4 让a居中
+                @media(max-width:991px){
+                    li{
+                        width: 25%;
+                        a{
+                            // a固定宽度 因为a是块级元素会和li宽度一样 所以要固定为60px
+                            width: 60px;
+                            // 因为是块级元素只能使用margin:0 auto; 居中
+                            margin: 0px auto;
+                            
+                        }
+                    }
+                }
+                li{
+                    a{
+                        border-radius: 50%;
+                        margin-bottom: 20px;
+                        color:#ccc;
+                        border:0;
+                        i{
+                            font-size: 30px;
+                        }
+                        &:hover{
+                            background-color: @main-color;
+                        }
+                    }
+                    &.active{
+                        a{
+                            background-color: @main-color;
+                        }
+                    }
+                }
+            }
+            .tab-content{
+                .list-group-item{
+                    border:0;
+                }
+            }
+        }
+    }
+}
+
+/* 合作伙伴区域的样式 */
+#footer{
+    padding: 20px 0;
+    .title{
+        h3{
+            text-align: center;
+        }
+    }
+    .content{
+        a{
+            display: block;
+            text-align: center;
+            color:#666;
+            &:hover{
+                color:@main-color;
+                text-decoration: none;
+            }
+            &:focus{
+                text-decoration: none;
+                outline: 0;
+            }
+            i{
+                font-size: 60px;
+            }
+        }
+    }
+}
